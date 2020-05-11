@@ -5,7 +5,7 @@ using Assets.Scripts.interfaces;
 public class Bullet : Ammunition
 {
     #region Serialize variable
-    [SerializeField] private float _timeToDestruct = 10;
+    [SerializeField] private float _timeToDestruct = 10f;
     [SerializeField] private float _damage = 20;
     [SerializeField] private float _mass = 0.1f;
     #endregion
@@ -14,7 +14,7 @@ public class Bullet : Ammunition
 
     private void Awake()
     {
-        Destroy(gameObject, _curentDamage);
+        Destroy(gameObject, _timeToDestruct);
         _curentDamage = _damage;
         gameObject.GetComponent<Rigidbody>().mass = _mass;
     }

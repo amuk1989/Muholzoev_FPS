@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -14,11 +15,17 @@ namespace Assets.Scripts
         #region protected variable
         protected bool _shotAllowed = true;
         protected Timer _delay = new Timer();
+        protected int _countOfBullets;
         #endregion
 
         #region Abstract Function
         public abstract void Fire(Ammunition ammunition);
         #endregion
+
+        private void Awake()
+        {
+            _countOfBullets = Convert.ToInt32(_bulletsInHolder);
+        }
 
         protected virtual void Update()
         {
